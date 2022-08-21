@@ -1,0 +1,52 @@
+ldtruc@UBT-2204:~$ kubectl exec -it hello-world-794458d64d-fvftw -- /bin/bash
+root@hello-world-794458d64d-fvftw:/app# exit
+exit
+ldtruc@UBT-2204:~$ kubectl get svc
+NAME          TYPE           CLUSTER-IP      EXTERNAL-IP                                                                     PORT(S)        AGE
+blue-svc      LoadBalancer   172.20.84.79    a2cd256a3f4fa40e8bc79b3732aa3596-334243a4550b9f41.elb.us-east-2.amazonaws.com   80:31382/TCP   3h22m
+canary-svc    ClusterIP      172.20.82.100   <none>                                                                          80/TCP         8m36s
+hello-world   LoadBalancer   172.20.190.37   ae0e5486d1ca24614a24c3e6b2ade03f-b0ca55b7ad6143e5.elb.us-east-2.amazonaws.com   80:32221/TCP   48m
+ldtruc@UBT-2204:~$
+ldtruc@UBT-2204:~$ kubectl exec -it hello-world-794458d64d-fvftw -- /bin/bash
+root@hello-world-794458d64d-fvftw:/app#
+root@hello-world-794458d64d-fvftw:/app# curl 172.20.82.100
+<html>
+<h1>This is version 1</h1>
+</html>
+root@hello-world-794458d64d-fvftw:/app# curl 172.20.82.100
+<html>
+<h1>This is version 1</h1>
+</html>
+root@hello-world-794458d64d-fvftw:/app# curl 172.20.82.100
+<html>
+<h1>This is version 1</h1>
+</html>
+root@hello-world-794458d64d-fvftw:/app# curl 172.20.82.100
+<html>
+<h1>This is version 2</h1>
+</html>
+root@hello-world-794458d64d-fvftw:/app# curl 172.20.82.100
+<html>
+<h1>This is version 1</h1>
+</html>
+root@hello-world-794458d64d-fvftw:/app# curl 172.20.82.100
+<html>
+<h1>This is version 1</h1>
+</html>
+root@hello-world-794458d64d-fvftw:/app# curl 172.20.82.100
+<html>
+<h1>This is version 1</h1>
+</html>
+root@hello-world-794458d64d-fvftw:/app# curl 172.20.82.100
+<html>
+<h1>This is version 2</h1>
+</html>
+root@hello-world-794458d64d-fvftw:/app# curl 172.20.82.100
+<html>
+<h1>This is version 1</h1>
+</html>
+root@hello-world-794458d64d-fvftw:/app# curl 172.20.82.100
+<html>
+<h1>This is version 2</h1>
+</html>
+root@hello-world-794458d64d-fvftw:/app#

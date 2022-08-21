@@ -1,0 +1,3 @@
+Step to fix:
+sed -i 's/nginx_status/healthz/g' apps/hello-world/hello.yml
+kubectl apply -f apps/hello-world/hello.yml

@@ -1,0 +1,47 @@
+ldtruc@UBT-2204:~/nd087-c3-deployment-roulette/starter/apps/canary$
+ldtruc@UBT-2204:~/nd087-c3-deployment-roulette/starter/apps/canary$ vi /home/ldtruc/nd087-c3-deployment-roulette/solutions/step2/canary.sh
+ldtruc@UBT-2204:~/nd087-c3-deployment-roulette/starter/apps/canary$ /home/ldtruc/nd087-c3-deployment-roulette/solutions/step2/canary.sh
+deployment.apps/canary-v2 created
+V1 PODS: 3
+V2 PODS: 1
+deployment.apps/canary-v2 scaled
+deployment.apps/canary-v1 scaled
+deployment "canary-v2" successfully rolled out
+Canary deployment of 1 replicas successful!
+Continue deployment? (y/n) n
+ldtruc@UBT-2204:~/nd087-c3-deployment-roulette/starter/apps/canary$
+ldtruc@UBT-2204:~/nd087-c3-deployment-roulette/starter/apps/canary$
+
+ldtruc@UBT-2204:~$
+ldtruc@UBT-2204:~$ kubectl get pods
+NAME                           READY   STATUS    RESTARTS   AGE
+blue-8475cbdf46-5vlwf          1/1     Running   0          68m
+blue-8475cbdf46-ft7lg          1/1     Running   0          68m
+blue-8475cbdf46-xwq69          1/1     Running   0          68m
+canary-v1-64598c676f-bfkss     1/1     Running   0          3m48s
+canary-v1-64598c676f-q6w6q     1/1     Running   0          3m47s
+canary-v2-5dc9c56687-fgdf8     1/1     Running   0          107s
+canary-v2-5dc9c56687-lcblg     1/1     Running   0          2m6s
+hello-world-794458d64d-fvftw   1/1     Running   0          69m
+ldtruc@UBT-2204:~$
+ldtruc@UBT-2204:~$
+ldtruc@UBT-2204:~$
+ldtruc@UBT-2204:~$ ^C
+ldtruc@UBT-2204:~$ kubectl get pods --all-namespaces
+NAMESPACE     NAME                           READY   STATUS    RESTARTS   AGE
+kube-system   aws-node-2xljr                 1/1     Running   0          3h48m
+kube-system   aws-node-skghv                 1/1     Running   0          3h49m
+kube-system   coredns-f47955f89-jj28c        1/1     Running   0          3h53m
+kube-system   coredns-f47955f89-pkx7t        1/1     Running   0          3h53m
+kube-system   kube-proxy-7ckrs               1/1     Running   0          3h49m
+kube-system   kube-proxy-f8vl7               1/1     Running   0          3h48m
+udacity       blue-8475cbdf46-5vlwf          1/1     Running   0          73m
+udacity       blue-8475cbdf46-ft7lg          1/1     Running   0          73m
+udacity       blue-8475cbdf46-xwq69          1/1     Running   0          73m
+udacity       canary-v1-64598c676f-bfkss     1/1     Running   0          8m11s
+udacity       canary-v1-64598c676f-q6w6q     1/1     Running   0          8m10s
+udacity       canary-v2-5dc9c56687-fgdf8     1/1     Running   0          6m10s
+udacity       canary-v2-5dc9c56687-lcblg     1/1     Running   0          6m29s
+udacity       hello-world-794458d64d-fvftw   1/1     Running   0          73m
+ldtruc@UBT-2204:~$
+ldtruc@UBT-2204:~$
